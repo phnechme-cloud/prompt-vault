@@ -1,0 +1,12 @@
+{
+  "name": "Prompt Vault · Kho Prompt",
+  "short_name": "Prompt Vault",
+  "description": "Kho prompt cá nhân: tìm, xem và sao chép nhanh.",
+  "lang": "vi",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f7efff",
+  "theme_color": "#f8efff",
+  "icons": [{ "src": "./icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }]
+}

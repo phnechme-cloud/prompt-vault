@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f8efff">
+  <meta name="description" content="Kho prompt cá nhân — tìm, xem, điền biến và sao chép nhanh.">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icons/icon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap&subset=vietnamese" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <title>Prompt Vault · Kho Prompt</title>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar glass">
+      <a class="brand" href="./" aria-label="Prompt Vault, về đầu trang">
+        <span class="brand-mark" aria-hidden="true">✳</span>
+        <span><strong>Prompt Vault</strong><small>kho ý tưởng của bạn</small></span>
+      </a>
+      <div class="search-wrap">
+        <span aria-hidden="true" class="search-icon">⌕</span>
+        <input id="searchInput" type="search" placeholder="Tìm prompt, đề mục, nội dung…" autocomplete="off" aria-label="Tìm prompt">
+        <kbd class="search-shortcut">/</kbd>
+      </div>
+      <div class="top-actions">
+        <button class="icon-button" id="refreshButton" aria-label="Làm mới" title="Làm mới"><span>↻</span><i id="syncDot" class="sync-dot offline"></i></button>
+        <button class="icon-button" id="settingsButton" aria-label="Cài đặt" title="Cài đặt">⚙</button>
+      </div>
+    </header>
+
+    <div class="sync-note" id="syncNote" aria-live="polite"></div>
+    <div class="mobile-filters" id="mobileFilters" aria-label="Lọc prompt"></div>
+
+    <div class="layout">
+      <aside class="sidebar glass" id="sidebar">
+        <div class="side-heading">THƯ VIỆN</div>
+        <nav id="sideFilters" aria-label="Bộ lọc thư viện"></nav>
+        <div class="side-divider"></div>
+        <div class="side-heading">ĐỀ MỤC</div>
+        <nav id="sideCategories" aria-label="Lọc theo đề mục"></nav>
+        <div class="side-footer"><span class="sync-dot offline" id="sideSyncDot"></span><span id="sideSyncText">Đang dùng bộ nhớ trên thiết bị</span></div>
+      </aside>
+
+      <main class="content" id="mainContent">
+        <section class="welcome-panel">
+          <div class="welcome-copy"><span class="eyebrow">THƯ VIỆN CÁ NHÂN</span><h1>Tìm đúng prompt.<br><em>Dùng ngay.</em></h1><p id="welcomeSubtitle">Mọi ý tưởng hay đều ở trong tầm tay.</p></div>
+          <div class="welcome-art" aria-hidden="true"><span class="orb orb-one"></span><span class="orb orb-two"></span><span class="art-spark">✦</span><span class="art-card">Aa</span></div>
+        </section>
+        <div id="errorBanner" class="error-banner hidden" role="alert"></div>
+        <div class="results-heading"><div><span class="eyebrow" id="resultsEyebrow">BỘ SƯU TẬP</span><h2 id="resultsTitle">Tất cả prompt</h2></div><span class="result-count" id="resultCount">0 prompt</span></div>
+        <div id="promptList" class="prompt-list"></div>
+        <div id="emptyState" class="empty-state hidden"><div class="empty-orbit">✳</div><h3>Chưa có prompt ở đây</h3><p>Kiểm tra kết nối hoặc thử bộ lọc khác nhé.</p></div>
+      </main>
+    </div>
+  </div>
+  <div class="overlay" id="overlay"></div>
+  <section class="detail-sheet" id="detailSheet" role="dialog" aria-modal="true" aria-label="Chi tiết prompt" hidden></section>
+  <section class="settings-sheet" id="settingsSheet" role="dialog" aria-modal="true" aria-label="Cài đặt" hidden></section>
+  <section class="fill-sheet" id="fillSheet" role="dialog" aria-modal="true" aria-label="Điền biến" hidden></section>
+  <section class="manual-copy" id="manualCopy" role="dialog" aria-modal="true" aria-label="Sao chép thủ công" hidden></section>
+  <div class="toast glass" id="toast" role="status" aria-live="polite"></div>
+  <div class="sr-only" aria-live="polite" id="liveRegion"></div>
+  <script src="./config.js"></script>
+  <script src="./pure.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
